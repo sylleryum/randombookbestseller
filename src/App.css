@@ -1,0 +1,154 @@
+.App {
+  text-align: center;
+}
+
+body{
+  background-color: #3F7CAC;
+  color: #3F7CAC;
+}
+
+#mainContainer{
+  background-color: white;
+}
+
+.bg-footer{
+  background-color: #3F7CAC;
+  width: 100%;
+  color: white;
+}
+
+.bg-footer a{
+  color: white;
+}
+
+.bg-footer a:hover{
+  color: #c3bbbe;
+}
+
+a{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+a:hover{
+  color: #567324
+}
+
+select {
+  /* Whatever color  you want */
+  background-color: white;
+  color: #3F7CAC;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.card-no-border{
+  border: none!important;
+}
+
+.reviews{
+  align-content: center!important;
+  text-align: center!important;
+  justify-content: center!important;
+  justify-items: center!important;
+}
+
+/*.bookCover{*/
+/*  height:20%;*/
+/*  width:20%;*/
+/*}*/
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.height-100{
+  min-height: 100vh;
+}
+
+.App-header {
+  /*background-color: #282c34;*/
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.card-img {
+  /*width: 20%;*/
+  /*height: 20%;*/
+  width: 200%;
+  height: 40vh;
+  object-fit: cover;
+}
+
+.card-img-top{
+  max-width: 20%;
+  height: auto;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/************************loading*************************/
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+.overlay-content {
+  display: flex;
+  width: 100%;
+  left: 0;
+  top: 0;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
+  z-index: 999999;
+  background: rgba(0, 0, 0, 0.7);
+  flex-direction: column;
+}
+
+.overlay-content .wrapper {
+  display: inherit;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.overlay-content .wrapper .message {
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 2px 5px black;
+}
+
+/* react-spinkit */
+
+.sk-spinner.pacman > div:nth-child(n+3):nth-child(-n+5) {
+  color: white;
+  z-index: -1;
+}
