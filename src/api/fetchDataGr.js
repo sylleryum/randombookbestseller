@@ -3,7 +3,7 @@ import * as convert from "xml-js";
 
 const endPoint = "https://www.goodreads.com/book/isbn/"
 const key = "?key=fXXuZUfpuJYz30B262BBg"
-const corsProxy = "https://cors-anywhere.herokuapp.com/"
+const corsProxy = "https://api.allorigins.win/get?url="
 
 /*
 var convert = require('xml-js');
@@ -19,18 +19,25 @@ export const fetchDataGr = async (isbn) => {
         return Error("No isbn");
     }
     const url = corsProxy + endPoint + isbn + key
-        console.log(`goodreads url ${url}`)
+    console.log(`goodreads url ${url}`)
     try {
         const {data} = await axios.get(url);
         const convert = require('xml-js');
-        const xml = data
+        const xml = data.contents
         const options = {compact: true};
-        const {GoodreadsResponse:{book}} = convert.xml2js(xml, options);
+
+        // const parser = new DOMParser().parseFromString(xml, "text/xml")
+
+        const {GoodreadsResponse: {book}} = convert.xml2js(xml, options);
         const result = {
             grRating:book.average_rating._text,
+            // grRating: parser.getElementsByTagName("book")[0].children[18].textContent,
             numPages:book.num_pages._cdata,
+            // numPages: parser.getElementsByTagName("book")[0].children[19].textContent,
             reviews:book.reviews_widget._cdata,
+            // reviews: parser.getElementsByTagName("book")[0].children[27].textContent,
             url:book.url._cdata
+            // url: parser.getElementsByTagName("book")[0].children[24].textContent
         }
         // console.log(`fetchDataGr`)
         // console.log(book);

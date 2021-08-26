@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {getTodayDataFormatted} from "../util/datesUtil";
+import * as https from "https";
 
 const endPoint = 'https://api.nytimes.com/svc/books/v3';
 const fiction = (date) => `/lists/${date}/Hardcover fiction.json`
@@ -25,7 +26,8 @@ export const fetchDataNyYear = async (date, category) => {
     console.log("-url: " + url + " category: " + category)
 
     try {
-        const {data: {results: {books}}} = await axios.get(url);
+        const httpsAgent = new https.Agent({ rejectUnauthorized: false });
+        const {data: {results: {books}}} = await axios.get(url, { httpsAgent: httpsAgent });
         return books.map((i) => {
             // console.log(`fetchdatanyyear`)
             // console.log(i)
